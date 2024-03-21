@@ -1,0 +1,31 @@
+package frc.robot.commands;
+
+import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.LauncherSubsystem;
+
+public class launcherCmd extends Command {
+  private final LauncherSubsystem launcherSubsystem;
+
+  public launcherCmd(LauncherSubsystem launcherSubsystem) {
+    this.launcherSubsystem = launcherSubsystem;
+    addRequirements(launcherSubsystem);
+  }
+
+  @Override
+  public void initialize() {}
+
+  @Override
+  public void execute() {
+    launcherSubsystem.setMotor(-0.6);
+  }
+
+  @Override
+  public void end(boolean interrupted) {
+    System.out.println("launcherCmd ended!");
+  }
+
+  @Override
+  public boolean isFinished() {
+    return false;
+  }
+}
